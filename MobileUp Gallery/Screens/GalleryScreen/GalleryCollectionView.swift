@@ -11,6 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class GalleryCollectionView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    private var authService = AuthService()
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }    
@@ -41,7 +43,9 @@ class GalleryCollectionView: UICollectionViewController, UICollectionViewDelegat
     }
     
     @objc func handleExit() {
-        print(123)
+        authService.logout()
+        let vc = AuthorizationViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

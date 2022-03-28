@@ -7,8 +7,10 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class AuthorizationViewController: UIViewController {
 
+    private var authService = AuthService()
+    
     let titleLabel: UILabel = {
        let label = UILabel()
         label.text = "Mobile Up Gallery"
@@ -29,20 +31,23 @@ class MainViewController: UIViewController {
 
         return button
     }()
-    
-    @objc func handlePresenting() {
-        let vc = GalleryCollectionView()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        authService.delegate = self
+        
+        view.backgroundColor = .white
         view.addSubview(titleLabel)
         view.addSubview(buttonInput)
         setupButtonInput()
         setupTitleLabel()
         
+    }
+    
+    @objc func handlePresenting() {
+
+        authService.wakeUpSession()
     }
     
     func setupButtonInput() {
@@ -61,7 +66,21 @@ class MainViewController: UIViewController {
         view.addConstraintsWithFormat(format: "H:|-24-[v0]-24-|", views: titleLabel)
         view.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 164))
     }
-    
-    
 }
 
+extension AuthorizationViewController: AuthServiceDelegate {
+    
+    func authServiceShouldShow(_ viewController: UIViewController) {
+        present(viewController, animated: true)
+    }
+    
+    func authServiseSignIn() {
+        let navVC = UINavigationController(rootViewController: GalleryCollectionView())
+        UIApplication.shared.windows.first?.rootViewController = navVC
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    func authServiceDidSignInFail() {
+        print(#function)
+    }
+    
+}
