@@ -6,101 +6,70 @@
 //
 
 import Foundation
-import VK_ios_sdk
+import WebKit
+
 
 protocol AuthServiceDelegate: class {
     func authServiceShouldShow(_ viewController: UIViewController)
-    func authServiseSignIn()
+    func authServiceSignIn()
     func authServiceDidSignInFail()
 }
 
+
 final class AuthService: NSObject {
-    
-    // MARK: - Internal vars
-    private let appId = "8116771"
-    private let vkSdk: VKSdk
+    private let keychain = KeychainService()
     weak var delegate: AuthServiceDelegate?
     
     var token: String? {
-        return VKSdk.accessToken().accessToken
+        keychain.loadPassword(serviceKey: .vk)
     }
     
-    override init() {
-        vkSdk = VKSdk.initialize(withAppId: appId)
-        super.init()
-        print("VKSdk.initialize ")
-        vkSdk.register(self)
-        vkSdk.uiDelegate = self
+    static let shared = AuthService()
+    
+    var authUrl: URL? {
+        guard var urlComponent = URLComponents(string: "https://oauth.vk.com/authorize") else { return nil }
+        let queryItems = [
+            URLQueryItem(name: "client_id", value: "8116771"),
+            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+            URLQueryItem(name: "scope", value: "offline"),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "response_type", value: "token")
+        ]
+        urlComponent.queryItems = queryItems
+        return urlComponent.url
     }
 }
 
-// MARK: - Internal logic
 extension AuthService {
     
-
-        
-    func wakeUpSession() {
-        let scope = ["offline"]
-        VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
-            if state == VKAuthorizationState.authorized {
-                print("VKAuthorizationState.authorized")
-                delegate?.authServiseSignIn()
-            } else if state == VKAuthorizationState.initialized {
-                print("VKAuthorizationState.initialized")
-                VKSdk.authorize(scope, with: VKAuthorizationOptions.init(rawValue: 2))
-            } else {
-                print("Auth problem, state \(state) error \(String(describing: error))")
-                delegate?.authServiceDidSignInFail()
-            }
-        }
-    }
-    func logout() {
-        VKSdk.forceLogout()
-        print("LogOut")
-    }
-}
-
-// MARK: - AuthServiceDelegate
-extension AuthService: AuthServiceDelegate {
-    
-    func authServiceShouldShow(_ viewController: UIViewController) {
-        print(#function)
-    }
-    
-    func authServiseSignIn() {
-        print(#function)
-    }
-    
-    func authServiceDidSignInFail() {
-        print(#function)
-    }
-}
-
-// MARK: - VKSdkDelegate
-extension AuthService: VKSdkDelegate {
-    
-    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
-        print(#function)
-        if result.token != nil {
-            self.delegate?.authServiseSignIn()
-        }
-    }
-    
-    func vkSdkUserAuthorizationFailed() {
-        print(#function)
-    }
-}
-
-// MARK: - VKSdkUIDelegate
-extension AuthService: VKSdkUIDelegate {
-    
-    func vkSdkShouldPresent(_ controller: UIViewController!) {
-        print(#function)
+    func openAuth() {
+        let controller = AuthViewController()
+        controller.delegate = self
         self.delegate?.authServiceShouldShow(controller)
     }
     
-    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
-        print(#function)
+    func userAuthorized() -> Bool {
+        return token != nil
+    }
+    
+    func logOut() {
+        keychain.removePassword(serviceKey: .vk)
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+            for record in records {
+                if record.displayName.contains("vk.com") {
+                    dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: { print("Deleted: " + record.displayName);
+                    })
+                }
+            }
+        }
     }
 }
 
+extension AuthService: AuthViewControllerDelegate {    
+    func authServiceSignIn(with token: String) {
+        keychain.updatePassword(token, serviceKey: .vk)
+        delegate?.authServiceSignIn()
+    }
+}
+ 

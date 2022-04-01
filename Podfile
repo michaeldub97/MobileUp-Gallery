@@ -7,6 +7,6 @@ target 'MobileUp Gallery' do
 
   # Pods for MobileUp Gallery
 
-pod "VK-ios-sdk"
+pod 'Kingfisher'
 
 end
