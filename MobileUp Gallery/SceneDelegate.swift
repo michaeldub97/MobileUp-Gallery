@@ -17,8 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
+        let userAuthorized = AuthService.shared.userAuthorized()
         
-        window.rootViewController = AuthorizationViewController()
+        window.rootViewController = userAuthorized ?  UINavigationController(rootViewController: GalleryCollectionViewController())  : AuthorizationViewController()
         
         self.window = window
         window.makeKeyAndVisible()

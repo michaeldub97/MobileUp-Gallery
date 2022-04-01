@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6DF2A28F4AEF74353E86D876 /* Pods_MobileUp_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DECB0AC2A11DC5EF7905E80 /* Pods_MobileUp_Gallery.framework */; };
-		8720121D27EE12B000534505 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720121C27EE12B000534505 /* GalleryCollectionView.swift */; };
+		8720121D27EE12B000534505 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720121C27EE12B000534505 /* GalleryCollectionViewController.swift */; };
 		8720122327EE2E0400534505 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720122227EE2E0400534505 /* BaseCell.swift */; };
 		8720122627EE2F0800534505 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720122527EE2F0800534505 /* PhotoCell.swift */; };
 		8720122927EE409700534505 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720122827EE409700534505 /* DetailViewController.swift */; };
@@ -16,17 +16,23 @@
 		8720123027EE420600534505 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8720122F27EE420600534505 /* DetailView.swift */; };
 		874AF85B27EF976500D10204 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874AF85A27EF976500D10204 /* AuthService.swift */; };
 		877ADCE627EE066800A8051B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877ADCE527EE066800A8051B /* Extensions.swift */; };
+		878D9A8627F5EF830002A694 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D9A8527F5EF830002A694 /* AuthorizationView.swift */; };
+		878D9A9127F6122B0002A694 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878D9A9027F6122B0002A694 /* PhotoCell.xib */; };
+		878D9A9527F6224C0002A694 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D9A9427F6224C0002A694 /* KeychainService.swift */; };
+		878D9A9927F622A20002A694 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878D9A9827F622A20002A694 /* AuthViewController.swift */; };
+		87C3CC4727F1F65900DF6F8D /* CurrentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C3CC4627F1F65900DF6F8D /* CurrentData.swift */; };
 		87C5138827EE016B00E9BE3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C5138727EE016B00E9BE3C /* AppDelegate.swift */; };
 		87C5138A27EE016B00E9BE3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C5138927EE016B00E9BE3C /* SceneDelegate.swift */; };
 		87C5138C27EE016B00E9BE3C /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C5138B27EE016B00E9BE3C /* AuthorizationViewController.swift */; };
 		87C5138F27EE016B00E9BE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C5138D27EE016B00E9BE3C /* Main.storyboard */; };
 		87C5139127EE017100E9BE3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87C5139027EE017100E9BE3C /* Assets.xcassets */; };
 		87C5139427EE017100E9BE3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87C5139227EE017100E9BE3C /* LaunchScreen.storyboard */; };
+		87D3B15827F1D1E30013895F /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3B15727F1D1E30013895F /* NetworkProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DECB0AC2A11DC5EF7905E80 /* Pods_MobileUp_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileUp_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8720121C27EE12B000534505 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		8720121C27EE12B000534505 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		8720122227EE2E0400534505 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		8720122527EE2F0800534505 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		8720122827EE409700534505 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +40,11 @@
 		8720122F27EE420600534505 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		874AF85A27EF976500D10204 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		877ADCE527EE066800A8051B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		878D9A8527F5EF830002A694 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		878D9A9027F6122B0002A694 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		878D9A9427F6224C0002A694 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		878D9A9827F622A20002A694 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		87C3CC4627F1F65900DF6F8D /* CurrentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentData.swift; sourceTree = "<group>"; };
 		87C5138427EE016B00E9BE3C /* MobileUp Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobileUp Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C5138727EE016B00E9BE3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87C5138927EE016B00E9BE3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +53,7 @@
 		87C5139027EE017100E9BE3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87C5139327EE017100E9BE3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87C5139527EE017100E9BE3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87D3B15727F1D1E30013895F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		91A9405BBAA192303FE219D3 /* Pods-MobileUp Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUp Gallery.release.xcconfig"; path = "Target Support Files/Pods-MobileUp Gallery/Pods-MobileUp Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		C62DFFE0B9353E392932E34C /* Pods-MobileUp Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUp Gallery.debug.xcconfig"; path = "Target Support Files/Pods-MobileUp Gallery/Pods-MobileUp Gallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,17 +90,13 @@
 		874929EC27EF88710028B408 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				878D9A9727F6229A0002A694 /* Auth */,
 				874AF85A27EF976500D10204 /* AuthService.swift */,
+				87D3B15727F1D1E30013895F /* NetworkProvider.swift */,
+				87C3CC4627F1F65900DF6F8D /* CurrentData.swift */,
+				878D9A9427F6224C0002A694 /* KeychainService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		877ADCE427EE061900A8051B /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				877ADCE527EE066800A8051B /* Extensions.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		877ADCE927EE069D00A8051B /* Screens */ = {
@@ -99,6 +107,23 @@
 				87DC442427EE0E4E00F7BF22 /* DetailScreen */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		878D9A8827F6004C0002A694 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8720122B27EE416200534505 /* BaseView.swift */,
+				8720122227EE2E0400534505 /* BaseCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		878D9A9727F6229A0002A694 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				878D9A9827F622A20002A694 /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		87C5137B27EE016B00E9BE3C = {
@@ -124,15 +149,14 @@
 			children = (
 				874929EC27EF88710028B408 /* Network */,
 				877ADCE927EE069D00A8051B /* Screens */,
-				877ADCE427EE061900A8051B /* Helpers */,
 				87C5138727EE016B00E9BE3C /* AppDelegate.swift */,
+				877ADCE527EE066800A8051B /* Extensions.swift */,
 				87C5138927EE016B00E9BE3C /* SceneDelegate.swift */,
 				87C5138D27EE016B00E9BE3C /* Main.storyboard */,
 				87C5139027EE017100E9BE3C /* Assets.xcassets */,
 				87C5139227EE017100E9BE3C /* LaunchScreen.storyboard */,
 				87C5139527EE017100E9BE3C /* Info.plist */,
-				8720122B27EE416200534505 /* BaseView.swift */,
-				8720122227EE2E0400534505 /* BaseCell.swift */,
+				878D9A8827F6004C0002A694 /* Base */,
 			);
 			path = "MobileUp Gallery";
 			sourceTree = "<group>";
@@ -141,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				87C5138B27EE016B00E9BE3C /* AuthorizationViewController.swift */,
+				878D9A8527F5EF830002A694 /* AuthorizationView.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -148,8 +173,9 @@
 		87DC442327EE0E3000F7BF22 /* GalleryScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8720121C27EE12B000534505 /* GalleryCollectionView.swift */,
+				8720121C27EE12B000534505 /* GalleryCollectionViewController.swift */,
 				8720122527EE2F0800534505 /* PhotoCell.swift */,
+				878D9A9027F6122B0002A694 /* PhotoCell.xib */,
 			);
 			path = GalleryScreen;
 			sourceTree = "<group>";
@@ -222,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878D9A9127F6122B0002A694 /* PhotoCell.xib in Resources */,
 				87C5139427EE017100E9BE3C /* LaunchScreen.storyboard in Resources */,
 				87C5139127EE017100E9BE3C /* Assets.xcassets in Resources */,
 				87C5138F27EE016B00E9BE3C /* Main.storyboard in Resources */,
@@ -277,16 +304,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C3CC4727F1F65900DF6F8D /* CurrentData.swift in Sources */,
 				8720122627EE2F0800534505 /* PhotoCell.swift in Sources */,
 				87C5138C27EE016B00E9BE3C /* AuthorizationViewController.swift in Sources */,
 				87C5138827EE016B00E9BE3C /* AppDelegate.swift in Sources */,
+				878D9A9927F622A20002A694 /* AuthViewController.swift in Sources */,
 				8720123027EE420600534505 /* DetailView.swift in Sources */,
 				87C5138A27EE016B00E9BE3C /* SceneDelegate.swift in Sources */,
-				8720121D27EE12B000534505 /* GalleryCollectionView.swift in Sources */,
+				87D3B15827F1D1E30013895F /* NetworkProvider.swift in Sources */,
+				8720121D27EE12B000534505 /* GalleryCollectionViewController.swift in Sources */,
+				878D9A9527F6224C0002A694 /* KeychainService.swift in Sources */,
 				8720122327EE2E0400534505 /* BaseCell.swift in Sources */,
 				8720122C27EE416200534505 /* BaseView.swift in Sources */,
 				877ADCE627EE066800A8051B /* Extensions.swift in Sources */,
 				874AF85B27EF976500D10204 /* AuthService.swift in Sources */,
+				878D9A8627F5EF830002A694 /* AuthorizationView.swift in Sources */,
 				8720122927EE409700534505 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
