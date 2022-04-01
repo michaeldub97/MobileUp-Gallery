@@ -4,7 +4,7 @@
 //
 //  Created by Михаил on 25.03.2022.
 //
-import VK_ios_sdk
+
 import UIKit
 
 @main
@@ -14,12 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
-        return true
-    }
-    
+
 
     // MARK: UISceneSession Lifecycle
 
